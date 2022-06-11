@@ -9,16 +9,22 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "build": "quasar build",
+    "start": "node server.js",
+    "heroku-postbuild": "yarn && yarn build",
     "deploy": "quasar build -m spa && mkdir -p deploy && cp -R dist/spa/* misc LICENSE package.json README.md deploy && node_modules/git-directory-deploy/bin/git-directory-deploy.sh -ddeploy -bgh-pages -rgit@git.gurtam.net:flespi/frontend/mqtt-board.git && rm -rf deploy && git push github gh-pages"
   },
   "dependencies": {
     "@quasar/extras": "^1.10.7",
     "compare-versions": "^3.6.0",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.14.0",
+    "express": "^4.18.1",
     "flespi-io-js": "github:flespi-software/flespi-io-js",
     "lodash": "^4.17.21",
     "mqtt": "^4.2.6",
     "quasar": "^1.15.21",
+    "serve-static": "^1.15.0",
     "vue-virtual-scroll-list": "^1.4.7"
   },
   "devDependencies": {
