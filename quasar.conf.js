@@ -1,29 +1,27 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
-const ESLintPlugin = require('eslint-webpack-plugin')
+const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = function (ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
-    boot: ['icomoon', 'integrationBus'],
+    boot: ["icomoon", "integrationBus"],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
-    css: [
-      'app.styl'
-    ],
+    css: ["app.styl"],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
-      'mdi-v5',
+      "mdi-v5",
       // 'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
-      'roboto-font', // optional, you are not bound to it
-      'material-icons' // optional, you are not bound to it
+      "roboto-font", // optional, you are not bound to it
+      "material-icons", // optional, you are not bound to it
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
@@ -38,54 +36,45 @@ module.exports = function (ctx) {
       //            (fastest compile time; minimum bundle size; most tedious)
       // * true   - Import everything from Quasar
       //            (not treeshaking Quasar; biggest bundle size; convenient)
-      importStrategy: 'auto',
+      importStrategy: "auto",
 
       components: [
-        'QLayout',
-        'QHeader',
-        'QFooter',
-        'QDrawer',
-        'QPageContainer',
-        'QPage',
-        'QToolbar',
-        'QToolbarTitle',
-        'QDialog',
-        'QList',
-        'QItem',
-        'QItemLabel',
-        'QItemSection',
-        'QSeparator',
-        'QBtn',
-        'QIcon',
-        'QInput',
-        'QCheckbox',
-        'QToggle',
-        'QSelect',
-        'QCard',
-        'QCardSection',
-        'QCardActions',
-        'QExpansionItem',
-        'QTooltip',
-        'QBtnToggle',
-        'QMenu',
-        'QChip',
-        'QInnerLoading',
-        'QSpinnerGears',
-        'QSpinner',
-        'QResizeObserver'
+        "QLayout",
+        "QHeader",
+        "QFooter",
+        "QDrawer",
+        "QPageContainer",
+        "QPage",
+        "QToolbar",
+        "QToolbarTitle",
+        "QDialog",
+        "QList",
+        "QItem",
+        "QItemLabel",
+        "QItemSection",
+        "QSeparator",
+        "QBtn",
+        "QIcon",
+        "QInput",
+        "QCheckbox",
+        "QToggle",
+        "QSelect",
+        "QCard",
+        "QCardSection",
+        "QCardActions",
+        "QExpansionItem",
+        "QTooltip",
+        "QBtnToggle",
+        "QMenu",
+        "QChip",
+        "QInnerLoading",
+        "QSpinnerGears",
+        "QSpinner",
+        "QResizeObserver",
       ],
-      directives: [
-        'Ripple',
-        'ClosePopup',
-        'TouchSwipe'
-      ],
+      directives: ["Ripple", "ClosePopup", "TouchSwipe"],
       // Quasar plugins
-      plugins: [
-        'Notify',
-        'Dialog',
-        'LocalStorage',
-        'SessionStorage'
-      ]
+      plugins: ["Notify", "Dialog", "LocalStorage", "SessionStorage"],
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
@@ -100,19 +89,21 @@ module.exports = function (ctx) {
       // analyze: true,
       // preloadChunks: false,
       // extractCSS: false,
+      distDir: ctx.mode.spa ? "public" : null,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
-      chainWebpack (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
-      }
+      chainWebpack(chain) {
+        chain
+          .plugin("eslint-webpack-plugin")
+          .use(ESLintPlugin, [{ extensions: ["js", "vue"] }]);
+      },
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
       // https: true,
       // port: 8080,
-      open: 'Google Chrome' // opens browser window automatically
+      open: "Google Chrome", // opens browser window automatically
     },
 
     // animations: 'all', // --- includes all animations
@@ -121,7 +112,7 @@ module.exports = function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {
-      pwa: false
+      pwa: false,
     },
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
@@ -129,43 +120,43 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       workboxOptions: {
         skipWaiting: true,
-        clientsClaim: true
+        clientsClaim: true,
       },
       manifest: {
-        name: 'MQTT Board',
-        short_name: 'MQTT Board',
-        display: 'standalone',
-        orientation: 'any',
-        background_color: '#333333',
-        theme_color: '#333333',
+        name: "MQTT Board",
+        short_name: "MQTT Board",
+        display: "standalone",
+        orientation: "any",
+        background_color: "#333333",
+        theme_color: "#333333",
         icons: [
           {
-            src: 'icons/apple-icon-120x120.png',
-            sizes: '120x120',
-            type: 'image/png'
+            src: "icons/apple-icon-120x120.png",
+            sizes: "120x120",
+            type: "image/png",
           },
           {
-            src: 'icons/ms-icon-144x144.png',
-            sizes: '144x144',
-            type: 'image/png'
+            src: "icons/ms-icon-144x144.png",
+            sizes: "144x144",
+            type: "image/png",
           },
           {
-            src: 'icons/apple-icon-152x152.png',
-            sizes: '152x152',
-            type: 'image/png'
+            src: "icons/apple-icon-152x152.png",
+            sizes: "152x152",
+            type: "image/png",
           },
           {
-            src: 'icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
+            src: "icons/icon-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
           },
           {
-            src: 'icons/ms-icon-310x310.png',
-            sizes: '310x310',
-            type: 'image/png'
-          }
-        ]
-      }
+            src: "icons/ms-icon-310x310.png",
+            sizes: "310x310",
+            type: "image/png",
+          },
+        ],
+      },
     },
 
     // https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
@@ -178,29 +169,26 @@ module.exports = function (ctx) {
     electron: {
       // bundler: 'builder', // or 'packager'
 
-      extendWebpack (cfg) {
+      extendWebpack(cfg) {
         // do something with Electron main process Webpack cfg
         // chainWebpack also available besides this extendWebpack
       },
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
-
         // OS X / Mac App Store
         // appBundleId: '',
         // appCategoryType: '',
         // osxSign: '',
         // protocol: 'myapp://path',
-
         // Windows only
         // win32metadata: { ... }
       },
 
       builder: {
         // https://www.electron.build/configuration/configuration
-
         // appId: 'mqtt-board'
-      }
-    }
-  }
-}
+      },
+    },
+  };
+};
